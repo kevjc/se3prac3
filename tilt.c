@@ -25,7 +25,7 @@ for (y=1;y<length; y++){
 		if (line[x-1] == line [x]){
 			line [x-1] = 2*line [x];
 			line [x] = 0;
-			slide(length, line, x);
+			x++;
 		}
 	}
 }
@@ -40,6 +40,7 @@ int tilt_line_left(int length,int *line)
 
 slide(length, line,1);
 combine (length, line);
+slide(length, line, 1);
   return 0;
 }
 
