@@ -40,32 +40,32 @@ int ttr_vector(int i1,int i2,int i3,int i4,char *msg,
 int test_tilt_left()
 {
   int e=0;
-  e|=ttl_vector(0,0,0,0,"Empty list is empty after shift",0,0,0,0);
-  e|=ttl_vector(1,0,0,0,"Value on left stays on left after shift",1,0,0,0);
-  e|=ttl_vector(0,0,0,1,"Value on right shifts to left edge after shift",1,0,0,0);
-  e|=ttl_vector(0,0,1,0,"Value in middle shifts to left edge after shift",1,0,0,0);
-  e|=ttl_vector(1,2,4,8,"Distinct values don't combine",1,2,4,8);
-  e|=ttl_vector(1,1,1,1,"Combinations don't cascade",2,2,0,0);
-  e|=ttl_vector(1,1,1,0,"Cominations do occur from left when tilting from left.",2,1,0,0);
-  e|=ttl_vector(0,0,1,1,"Combinations occur on shift",2,0,0,0);
-  e|=ttl_vector(4,0,1,1,"Combinations occur on partial shift",4,2,0,0);
-  e|=ttl_vector(2,0,1,1,"Single combination does not cascade",2,2,0,0);
+  e|=ttl_vector(0,0,0,0,"(L)Empty list is empty after shift",0,0,0,0);
+  e|=ttl_vector(1,0,0,0,"(L)Value on left stays on left after shift",1,0,0,0);
+  e|=ttl_vector(0,0,0,1,"(L)Value on right shifts to left edge after shift",1,0,0,0);
+  e|=ttl_vector(0,0,1,0,"(L)Value in middle shifts to left edge after shift",1,0,0,0);
+  e|=ttl_vector(1,2,4,8,"(L)Distinct values don't combine",1,2,4,8);
+  e|=ttl_vector(1,1,1,1,"(L)Combinations don't cascade",2,2,0,0);
+  e|=ttl_vector(1,1,1,0,"(L)Cominations do occur from left when tilting from left.",2,1,0,0);
+  e|=ttl_vector(0,0,1,1,"(L)Combinations occur on shift",2,0,0,0);
+  e|=ttl_vector(4,0,1,1,"(L)Combinations occur on partial shift",4,2,0,0);
+  e|=ttl_vector(2,0,1,1,"(L)Single combination does not cascade",2,2,0,0);
   return e;
 }
 
 int test_tilt_right()
 {
   int e=0;
-  e|=ttr_vector(0,0,0,0,"Empty list is empty after shift",0,0,0,0);
-  e|=ttr_vector(0,0,0,1,"Value on right stays on right after shift",0,0,0,1);
-  e|=ttr_vector(1,0,0,0,"Value on left shifts to right edge after shift",0,0,0,1);
-  e|=ttr_vector(0,0,1,0,"Value in middle shifts to right edge after shift",0,0,0,1);
-  e|=ttr_vector(1,2,4,8,"Distinct values don't combine",1,2,4,8);
-  e|=ttr_vector(1,1,1,1,"Combinations don't cascade",0,0,2,2);
-  e|=ttr_vector(1,1,1,0,"Cominations do occur from left when tilting from left.",0,0,1,2);
-  e|=ttr_vector(0,0,1,1,"Combinations occur on shift",0,0,0,2);
-  e|=ttr_vector(1,1,0,4,"Combinations occur on partial shift",0,0,2,4);
-  e|=ttr_vector(2,0,1,1,"Single combination does not cascade",0,0,2,2);
+  e|=ttr_vector(0,0,0,0,"(R)Empty list is empty after shift",0,0,0,0);
+  e|=ttr_vector(0,0,0,1,"(R)Value on right stays on right after shift",0,0,0,1);
+  e|=ttr_vector(1,0,0,0,"(R)Value on left shifts to right edge after shift",0,0,0,1);
+  e|=ttr_vector(0,0,1,0,"(R)Value in middle shifts to right edge after shift",0,0,0,1);
+  e|=ttr_vector(1,2,4,8,"(R)Distinct values don't combine",1,2,4,8);
+  e|=ttr_vector(1,1,1,1,"(R)Combinations don't cascade",0,0,2,2);
+  e|=ttr_vector(1,1,1,0,"(R)Cominations do occur from left when tilting from left.",0,0,1,2);
+  e|=ttr_vector(0,0,1,1,"(R)Combinations occur on shift",0,0,0,2);
+  e|=ttr_vector(1,1,0,4,"(R)Combinations occur on partial shift",0,0,2,4);
+  e|=ttr_vector(2,0,1,1,"(R)Single combination does not cascade",0,0,2,2);
   return e;
 }
 
