@@ -64,7 +64,7 @@ int test_tilt_right()
   e|=ttr_vector(1,1,1,1,"Combinations don't cascade",0,0,2,2);
   e|=ttr_vector(1,1,1,0,"Cominations do occur from left when tilting from left.",0,0,1,2);
   e|=ttr_vector(0,0,1,1,"Combinations occur on shift",0,0,0,2);
-  e|=ttr_vector(4,0,1,1,"Combinations occur on partial shift",0,0,2,4);
+  e|=ttr_vector(1,1,0,4,"Combinations occur on partial shift",0,0,2,4);
   e|=ttr_vector(2,0,1,1,"Single combination does not cascade",0,0,2,2);
   return e;
 }
