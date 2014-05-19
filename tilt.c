@@ -39,22 +39,22 @@ int tilt_line_right(int length,int *line)
   if (length<1||length>255) return -1;
 
 int y,x;
-for (y=length-2;y>0; y--){
-	for (x=length-2; x>0; x--){
+for (y=length-2;y>=0; y--){
+	for (x=length-2; x>=0; x--){
 		if (line[x+1] == 0){
 			line [x+1] = line [x];
 			line [x] = 0;
 		}
 	}
 }
-for (x=length-2; x>0; x--){
+for (x=length-2; x>=0; x--){
 	if (line[x+1] == line [x]){
 		line [x+1] = 2*line [x];
 		line [x] = 0;
 	}
 }
-for (y=length-2;y>0; y--){
-	for (x=length-2; x>0; x--){
+for (y=length-2;y>=0; y--){
+	for (x=length-2; x>=0; x--){
 		if (line[x+1] == 0){
 			line [x+1] = line [x];
 			line [x] = 0;
