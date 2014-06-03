@@ -64,3 +64,20 @@ for (y=length-2;y>=0; y--){
   return 0;
 }
 
+int tilt_board_right(int size, int **board){
+// make sure board size is sensible
+  if (length<1||length>255) return -1;
+	int x=0;
+	int y=0;
+	for(x;x< size/2;x++){
+		for(y;y<size/2;y++)
+	int temp = board[x+y][x+y];
+	board[x+y][x+y]= board[size-(x+y)][x+y];
+	board[size-(x+y)][x+y] = board[size-(x+y)][size-(x+y)];
+	board[size-(x+y)][size-(x+y)] = board[x+y][size-(x+y)];
+	board[x+y][size-(x+y)] = temp;
+}
+}		
+return 0;
+}
+
