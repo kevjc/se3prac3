@@ -123,10 +123,10 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
   fflush(stdout);
   func(4,board);
   if (
-      (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0]||
-      (board[0][1]!=o4)||(board[1][1]!=o5)||(board[2][1]!=o6)||(board[3][1]||
-      (board[0][2]!=o7)||(board[1][2]!=o8)||(board[2][2]!=o9)||(board[3][2]||
-	  (board[0][3]!=o7)||(board[1][3]!=o8)||(board[2][3]!=o9)||(board[3][3]      
+      (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0])||
+      (board[0][1]!=o4)||(board[1][1]!=o5)||(board[2][1]!=o6)||(board[3][1])||
+      (board[0][2]!=o7)||(board[1][2]!=o8)||(board[2][2]!=o9)||(board[3][2])||
+	  (board[0][3]!=o7)||(board[1][3]!=o8)||(board[2][3]!=o9)||(board[3][3])      
       )
     {
      printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
