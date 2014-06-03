@@ -26,7 +26,7 @@ int line_vector_test(int i1,int i2,int i3,int i4,char *msg,
 }
 
 int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
-                      int 01,int 02,int 03,int 04, int (*func)(int,int **))
+                      int o1,int o2,int o3,int o4, int (*func)(int,int **))
 {
   int **board=alloca(2*sizeof(int*));
   board[0]=alloca(sizeof(int)*2);
