@@ -69,8 +69,8 @@ int tilt_board_right(int size, int **board){
   if (size<1||size>255) return -1;
 	int x=0;
 	int y=0;
-	for(x;x< size/2;x++){
-		for(y;y<size/2;y++){
+	for(x=0;x<size/2;x++){
+		for(y=0;y<size/2;y++){
 	int temp = board[x+y][x+y];
 	board[x+y][x+y]= board[size-(x+y)][x+y];
 	board[size-(x+y)][x+y] = board[size-(x+y)][size-(x+y)];
