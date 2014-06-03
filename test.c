@@ -193,7 +193,7 @@ int test_board2()
   e|=board_vector_test(1,0,0,0,"Tilt single value Right",0,1,0,0,tilt_board_right);
 }
 
-int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
+int board_vector_tests(int i1,int i2,int i3,int i4,char *msg,
                       int o1,int o2,int o3,int o4, int (*func)(int,int **))
 {
   int **board=alloca(2*sizeof(int*));
