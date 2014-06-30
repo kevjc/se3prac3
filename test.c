@@ -46,7 +46,7 @@ int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
       printf("FAILED: {{%d,%d},{%d,%d}} became {{%d,%d},{%d,%d}} instead of"
              " {{%d,%d},{%d,%d}}\n",
              i1,i2,i3,i4,
-             board[0][0],board[1][0],board[0][1],board[1][1],
+             board[0][0],board[0][1],board[1][0],board[1][1],
              o1,o2,o3,o4);
       return -1;
     } 
@@ -84,9 +84,9 @@ int board3_vector_test(int i1,int i2,int i3,int i4,int i5,
      printf("FAILED: {{%d,%d,%d},{%d,%d,%d},{%d,%d,%d}} became {{%d,%d,%d},{%d,%d,%d},{%d,%d,%d}} instead of"
              " {{%d,%d,%d},{%d,%d,%d},{%d,%d,%d}}\n",
              i1,i2,i3,i4,i5,i6,i7,i8,i9,
-             board[0][0],board[1][0],board[2][0],
-             board[0][1],board[1][1],board[2][1],
-             board[0][2],board[1][2],board[2][2],
+             board[0][0],board[0][1],board[0][2],
+             board[1][0],board[1][1],board[1][2],
+             board[2][0],board[2][1],board[2][2],
              o1,o2,o3,o4,o5,o6,o7,o8,o9);
       return -1;
     } 
@@ -132,10 +132,10 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
      printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
              " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
              i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,
-             board[0][0],board[1][0],board[2][0],board[3][0],
-             board[0][1],board[1][1],board[2][1],board[3][1],
-             board[0][2],board[1][2],board[2][2],board[3][2],
-			 board[0][3],board[1][3],board[2][3],board[3][3],
+             board[0][0],board[0][1],board[0][2],board[0][3],
+             board[1][0],board[1][1],board[1][2],board[1][3],
+             board[2][0],board[2][1],board[2][2],board[2][3],
+			 board[3][0],board[3][1],board[3][2],board[3][3],
              o1,o2,o3,o4,o5,o6,o7,o8,o9,o10,o11,o12,o13,o14,o15,o16);
       return -1;
     } 
@@ -190,7 +190,7 @@ int test_tilt_right()
 int test_board2()
 {
   int e=0;
-  e|=board_vector_test(1,0,0,0,"Tilt single value Right",0,1,0,0,board_rotate_right);
+  e|=board_vector_test(1,0,0,0,"Rotate Single Value",0,1,0,0,board_rotate_right);
 return e;
 }
 
