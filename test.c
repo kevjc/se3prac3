@@ -216,6 +216,13 @@ int test_board_rotations()
 														   		 	 14,10,6,2,
 														  			 15,11,7,3,
 														   			 16,12,8,4,board_rotate_right);
+  e|=board4_vector_test(13,9,5,1,
+						14,10,6,2,
+           			 	15,11,7,3,
+						16,12,8,4,"(4*4)Rotate 16 distinct values left",1,2,3,4,
+																  		5,6,7,8,
+																  	    9,10,11,12,
+																   		13,14,15,16,board_rotate_left);
 return e;
 }
 
