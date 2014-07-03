@@ -6,7 +6,7 @@ int tilt_line_left(int length,int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
-if (board == NULL) return 0;
+if (line == NULL) return 0;
 int y,x;
 for (y=1;y<length; y++){
 	for (x=1; x<length; x++){
@@ -37,7 +37,7 @@ int tilt_line_right(int length,int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
-if (board == NULL) return 0;
+if (line == NULL) return 0;
 int y,x;
 for (y=length-2;y>=0; y--){
 	for (x=length-2; x>=0; x--){
