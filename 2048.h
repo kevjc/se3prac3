@@ -20,4 +20,5 @@ int tilt_line_left(int length,int *line);
 int tilt_line_right(int length,int *line);
 int board_rotate_right(int size, int **board);
 int board_rotate_left(int size, int **board);
+int tilt_board_up(int size, int **board);
 
