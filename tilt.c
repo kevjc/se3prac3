@@ -83,8 +83,9 @@ return 0;
 }
 
 int board_rotate_left(int size, int **board){
+int x;
 	for (x=0; x<3;x++){
-		board_rotate_right(size, **board);
+		board_rotate_right(size, board);
 	}
 return 0;
 }
