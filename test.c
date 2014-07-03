@@ -230,6 +230,27 @@ int test_board_rotations()
 														   	0,0,0,0,
 														   	0,0,0,0,
 														   	0,0,0,0,tilt_board_up);
+ e|=board4_vector_test(0,0,0,0,
+						0,0,1,2,
+						1,1,0,0,
+						1,1,1,1,"(4*4)Tilt up Double Value",2,2,2,2,
+														   	0,0,0,1,
+														   	0,0,0,0,
+														   	0,0,0,0,tilt_board_up);
+  e|=board4_vector_test(1,1,1,1,
+						0,0,0,0,
+						0,0,0,0,
+						0,0,0,0,"(4*4)Tilt down Single Value",0,0,0,0,
+														   	0,0,0,0,
+														   	0,0,0,0,
+														   	1,1,1,1,tilt_board_down);
+ e|=board4_vector_test( 1,1,1,1,
+						0,0,1,2,
+						1,1,0,0,
+						1,1,1,1,"(4*4)Tilt down Double Value",0,0,0,0,
+														   	0,0,0,1,
+														   	1,1,1,2,
+														   	2,2,2,1,tilt_board_down);
 
 return e;
 }
