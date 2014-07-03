@@ -83,6 +83,7 @@ return 0;
 }
 
 int board_rotate_left(int size, int **board){
+  if (size<1||size>255) return -1;
 int x;
 	for (x=0; x<3;x++){
 		board_rotate_right(size, board);
@@ -91,6 +92,7 @@ return 0;
 }
 
 int tilt_board_up(int size, int **board){
+  if (size<1||size>255) return -1;
 	board_rotate_right(size, board);
 	int x;
 	for(x=0; x<size;x++){
@@ -101,6 +103,7 @@ return 0;
 }
 
 int tilt_board_down(int size, int **board){
+  if (size<1||size>255) return -1;
 	board_rotate_right(size, board);
 	int x;
 	for(x=0; x<size;x++){
