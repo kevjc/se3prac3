@@ -251,8 +251,86 @@ int test_board_rotations()
 														   	0,0,0,1,
 														   	1,1,1,2,
 														   	2,2,2,1,tilt_board_down);
+ e|=board4_vector_test( 1,0,0,0,
+						1,0,0,0,
+						1,0,0,0,
+						1,0,0,0,"(4*4)Tilt right Single Value",0,0,0,1,
+														 	   0,0,0,1,
+														   	   0,0,0,1,
+														   	   0,0,0,1,tilt_board_right);
+ e|=board4_vector_test( 1,1,0,0,
+						1,0,0,2,
+						1,1,0,0,
+						1,0,0,1,"(4*4)Tilt right Double Value",0,0,0,2,
+														   	0,0,1,2,
+														   	0,0,0,2,
+														   	0,0,0,2,tilt_board_right);
+ e|=board4_vector_test( 1,0,0,0,
+						1,0,0,0,
+						1,0,0,0,
+						1,0,0,0,"(4*4)Tilt left Single Value",1,0,0,0,
+														 	   1,0,0,0,
+														   	   1,0,0,0,
+														   	   1,0,0,0,tilt_board_left);
+ e|=board4_vector_test( 1,0,0,1,
+						0,1,1,0,
+						0,1,0,1,
+						0,0,1,2,"(4*4)Tilt left Double Value",2,0,0,0,
+														   	2,0,0,0,
+														   	2,0,0,0,
+														   	1,2,0,0,tilt_board_left);
 
 return e;
+}
+
+int wb256(){
+printf("\nin wb256 \n");
+fflush(stdout);
+int e=0;
+e+=tilt_line_left(256,NULL);
+e+=tilt_line_right(256,NULL);
+e+=board_rotate_right(256,NULL);
+e+=board_rotate_left(256,NULL);
+e+=tilt_board_up(256,NULL);
+e+=tilt_board_down(256,NULL);
+e+=tilt_board_left(256,NULL);
+e+=tilt_board_right(256,NULL);
+if(e == (0-8)) {
+printf("upper boundary 256 test: PASS\n");
+}else{
+printf("upper boundary 256 test: FAIL: %d \n",e);
+}
+fflush(stdout);
+return 0;
+}
+
+int wb255(){
+printf("\nin wb255 \n");
+fflush(stdout);
+int e=0;
+e+=tilt_line_left(255,NULL);
+e+=tilt_line_right(255,NULL);
+e+=board_rotate_right(255,NULL);
+e+=board_rotate_left(255,NULL);
+e+=tilt_board_up(255,NULL);
+e+=tilt_board_down(255,NULL);
+e+=tilt_board_left(255,NULL);
+e+=tilt_board_right(255,NULL);
+if(e == (0)) {
+printf("upper boundary 255 test: PASS\n");
+}else{
+printf("upper boundary 255 test: FAIL: %d \n",e);
+}
+fflush(stdout);
+return 0;
+}
+
+int whitebox(){
+fflush(stdout);
+//The goal of this white box testing is to execute the if statement for all boundaries at the beginning of every titl or rotate function
+wb256();
+wb255();
+return 0;
 }
 
 int main(int argc,char **argv)
@@ -261,5 +339,6 @@ int main(int argc,char **argv)
   e|=test_tilt_left();
   e|=test_tilt_right();
   e|=test_board_rotations();
+  whitebox();
   return e;
 }
