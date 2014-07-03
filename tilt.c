@@ -90,3 +90,12 @@ int x;
 return 0;
 }
 
+int tilt_board_up(int size, int **board){
+	board_rotate_right(size, board);
+	int x;
+	for(x=0; x<size;x++){
+		tilt_line_right(size, board[x]);
+	}
+return 0;
+}
+
