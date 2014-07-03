@@ -40,8 +40,8 @@ int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
   }
   fflush(stdout);
   func(2,board);
-  if ((board[0][0]!=o1)||(board[1][0]!=o2)
-      ||(board[0][1]!=o3)||(board[1][1]!=o4))
+  if ((board[0][0]!=o1)||(board[0][1]!=o2)
+      ||(board[1][0]!=o3)||(board[1][1]!=o4))
     {
       printf("FAILED: {{%d,%d},{%d,%d}} became {{%d,%d},{%d,%d}} instead of"
              " {{%d,%d},{%d,%d}}\n",
@@ -190,7 +190,8 @@ int test_tilt_right()
 int test_board2()
 {
   int e=0;
-  e|=board_vector_test(1,0,0,0,"Rotate Single Value",0,1,0,0,board_rotate_right);
+  e|=board_vector_test(1,0,0,0,"(2*2)Rotate Single Value",0,1,0,0,board_rotate_right);
+  e|=board_vector_test(1,2,3,4,"(2*2)Rotate 4 unique values",4,1,2,3,board_rotate_right);
 return e;
 }
 
