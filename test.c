@@ -229,7 +229,7 @@ int test_board_rotations()
 						1,1,1,1,"(4*4)Tilt up Single Value",1,1,1,1,
 														   	0,0,0,0,
 														   	0,0,0,0,
-														   	0,0,0,0,board_rotate_right);
+														   	0,0,0,0,tilt_board_up);
 
 return e;
 }
