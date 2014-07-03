@@ -369,7 +369,7 @@ return 0;
 
 int whitebox(){
 fflush(stdout);
-//The goal of this white box testing is to execute the if statement for all boundaries at the beginning of every titl or rotate function
+//The goal of this white box testing is to execute the if statement for all boundaries at the beginning of every tilt or rotate function
 wb256();
 wb255();
 wb1();
