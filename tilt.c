@@ -100,3 +100,13 @@ int tilt_board_up(int size, int **board){
 return 0;
 }
 
+int tilt_board_down(int size, int **board){
+	board_rotate_right(size, board);
+	int x;
+	for(x=0; x<size;x++){
+		tilt_line_left(size, board[x]);
+	}
+	board_rotate_left(size, board);
+return 0;
+}
+
