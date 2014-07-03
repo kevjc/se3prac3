@@ -77,8 +77,15 @@ int board_rotate_right(int size, int **board){
 			board[size-x-1][y]=board[size-y-1][size-x-1];
 			board[size-y-1][size-x-1]=board[x][size-y-1];
 			board[x][size-y-1]=temp;
+		}
+	}		
+return 0;
 }
-}		
+
+int board_rotate_left(int size, int **board){
+	for (x=0; x<3;x++){
+		board_rotate_right(size, **board);
+	}
 return 0;
 }
 
