@@ -6,7 +6,7 @@ int tilt_line_left(int length,int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
-
+if (board == NULL) return 0;
 int y,x;
 for (y=1;y<length; y++){
 	for (x=1; x<length; x++){
@@ -37,7 +37,7 @@ int tilt_line_right(int length,int *line)
 {
   // make sure vector length is sensible
   if (length<1||length>255) return -1;
-
+if (board == NULL) return 0;
 int y,x;
 for (y=length-2;y>=0; y--){
 	for (x=length-2; x>=0; x--){
@@ -67,6 +67,7 @@ for (y=length-2;y>=0; y--){
 int board_rotate_right(int size, int **board){
 // make sure board size is sensible
   if (size<1||size>255) return -1;
+if (board == NULL) return 0;
 	int x=0;
 	int y=0;
     int temp=0;
@@ -84,6 +85,7 @@ return 0;
 
 int board_rotate_left(int size, int **board){
   if (size<1||size>255) return -1;
+if (board == NULL) return 0;
 int x;
 	for (x=0; x<3;x++){
 		board_rotate_right(size, board);
@@ -93,6 +95,7 @@ return 0;
 
 int tilt_board_up(int size, int **board){
   if (size<1||size>255) return -1;
+if (board == NULL) return 0;
 	board_rotate_right(size, board);
 	int x;
 	for(x=0; x<size;x++){
@@ -104,12 +107,33 @@ return 0;
 
 int tilt_board_down(int size, int **board){
   if (size<1||size>255) return -1;
+if (board == NULL) return 0;
 	board_rotate_right(size, board);
 	int x;
 	for(x=0; x<size;x++){
 		tilt_line_left(size, board[x]);
 	}
 	board_rotate_left(size, board);
+return 0;
+}
+
+int tilt_board_right(int size, int **board){
+if (size<1||size>255) return -1;
+if (board == NULL) return 0;
+	int x;
+	for(x=0; x<size;x++){
+		tilt_line_right(size, board[x]);
+	}
+return 0;
+}
+
+int tilt_board_left(int size, int **board){
+if (size<1||size>255) return -1;
+if (board == NULL) return 0;
+	int x;
+	for(x=0; x<size;x++){
+		tilt_line_left(size, board[x]);
+	}
 return 0;
 }
 
