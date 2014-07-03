@@ -64,9 +64,9 @@ int board3_vector_test(int i1,int i2,int i3,int i4,int i5,
   board[0]=alloca(sizeof(int)*3);
   board[1]=alloca(sizeof(int)*3);
   board[2]=alloca(sizeof(int)*3);
-  board[0][0]=i1; board[1][0]=i2; board[2][0]=i3;
-  board[0][1]=i4; board[1][1]=i5; board[2][1]=i6;
-  board[0][2]=i7; board[1][2]=i8; board[2][2]=i9;
+  board[0][0]=i1; board[0][1]=i2; board[0][2]=i3;
+  board[1][0]=i4; board[1][1]=i5; board[1][2]=i6;
+  board[2][0]=i7; board[2][1]=i8; board[2][2]=i9;
 
   if (msg) printf("%s - ",msg); 
   else {
@@ -76,9 +76,9 @@ int board3_vector_test(int i1,int i2,int i3,int i4,int i5,
   fflush(stdout);
   func(3,board);
   if (
-      (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||
-      (board[0][1]!=o4)||(board[1][1]!=o5)||(board[2][1]!=o6)||
-      (board[0][2]!=o7)||(board[1][2]!=o8)||(board[2][2]!=o9)
+      (board[0][0]!=o1)||(board[0][1]!=o2)||(board[0][2]!=o3)||
+      (board[1][0]!=o4)||(board[1][1]!=o5)||(board[1][2]!=o6)||
+      (board[2][0]!=o7)||(board[2][1]!=o8)||(board[2][2]!=o9)
       )
     {
      printf("FAILED: {{%d,%d,%d},{%d,%d,%d},{%d,%d,%d}} became {{%d,%d,%d},{%d,%d,%d},{%d,%d,%d}} instead of"
@@ -109,10 +109,10 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
   board[1]=alloca(sizeof(int)*4);
   board[2]=alloca(sizeof(int)*4);
   board[3]=alloca(sizeof(int)*4);
-  board[0][0]=i1; board[1][0]=i2; board[2][0]=i3; board[3][0]=i4; 
-  board[0][1]=i5; board[1][1]=i6; board[2][1]=i7; board[3][1]=i8;
-  board[0][2]=i9; board[1][2]=i10; board[2][2]=i11; board[3][2]=i12;
-  board[0][3]=i13;board[1][3]=i14; board[2][3]=i15; board[3][3]=i16; 
+  board[0][0]=i1; board[0][1]=i2; board[0][2]=i3; board[0][3]=i4; 
+  board[1][0]=i5; board[1][1]=i6; board[1][2]=i7; board[1][3]=i8;
+  board[2][0]=i9; board[2][1]=i10; board[2][2]=i11; board[2][3]=i12;
+  board[3][0]=i13;board[3][1]=i14; board[3][2]=i15; board[3][3]=i16; 
 
 
   if (msg) printf("%s - ",msg); 
@@ -123,14 +123,14 @@ int board4_vector_test(int i1,int i2,int i3,int i4,
   fflush(stdout);
   func(4,board);
   if (
-      (board[0][0]!=o1)||(board[1][0]!=o2)||(board[2][0]!=o3)||(board[3][0])||
-      (board[0][1]!=o4)||(board[1][1]!=o5)||(board[2][1]!=o6)||(board[3][1])||
-      (board[0][2]!=o7)||(board[1][2]!=o8)||(board[2][2]!=o9)||(board[3][2])||
-	  (board[0][3]!=o7)||(board[1][3]!=o8)||(board[2][3]!=o9)||(board[3][3])      
+      (board[0][0]!=o1)||(board[0][1]!=o2)||(board[0][2]!=o3)||(board[0][3])!=o4||
+      (board[1][1]!=o5)||(board[1][1]!=o6)||(board[1][2]!=o7)||(board[1][3]!=o8)||
+      (board[2][2]!=o9)||(board[2][1]!=o10)||(board[2][2]!=o11)||(board[2][3]!=o12)||
+	  (board[3][3]!=o13)||(board[3][1]!=o14)||(board[3][2]!=o15)||(board[3][3]!=o16)      
       )
     {
-     printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
-             " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
+     printf("FAILED: {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} became {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}} instead of"
+             " {{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d},{%d,%d,%d,%d}}\n",
              i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,
              board[0][0],board[0][1],board[0][2],board[0][3],
              board[1][0],board[1][1],board[1][2],board[1][3],
@@ -187,11 +187,35 @@ int test_tilt_right()
   return e;
 }
 
-int test_board2()
+int test_board_rotations()
 {
   int e=0;
   e|=board_vector_test(1,0,0,0,"(2*2)Rotate Single Value",0,1,0,0,board_rotate_right);
   e|=board_vector_test(1,2,3,4,"(2*2)Rotate 4 unique values",3,1,4,2,board_rotate_right);
+  e|=board3_vector_test(1,0,0,
+						0,0,0,
+						0,0,0,"(3*3)Rotate Single Value",0,0,1,
+														 0,0,0,
+														 0,0,0,board_rotate_right);
+  e|=board3_vector_test(1,2,3,
+						4,5,6,
+						7,8,9,"(3*3)Rotate 9 distinct values",7,4,1,
+															  8,5,2,
+															  9,6,3,board_rotate_right);
+  e|=board4_vector_test(1,0,0,0,
+						0,0,0,0,
+						0,0,0,0,
+						0,0,0,0,"(4*4)Rotate Single Value",0,0,0,1,
+														   0,0,0,0,
+														   0,0,0,0,
+														   0,0,0,0,board_rotate_right);
+  e|=board4_vector_test(1,2,3,4,
+						5,6,7,8,
+						9,10,11,12,
+						13,14,15,16,"(4*4)Rotate 16 distinct values",13,9,5,1,
+														   		 	 14,10,6,2,
+														  			 15,11,7,3,
+														   			 16,12,8,4,board_rotate_right);
 return e;
 }
 
@@ -200,6 +224,6 @@ int main(int argc,char **argv)
   int e=0;
   e|=test_tilt_left();
   e|=test_tilt_right();
-  e|=test_board2();
+  e|=test_board_rotations();
   return e;
 }
