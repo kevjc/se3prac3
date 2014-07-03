@@ -31,7 +31,7 @@ int board_vector_test(int i1,int i2,int i3,int i4,char *msg,
   int **board=alloca(2*sizeof(int*));
   board[0]=alloca(sizeof(int)*2);
   board[1]=alloca(sizeof(int)*2);
-  board[0][0]=i1; board[1][0]=i2; board[0][1]=i3; board[1][1]=i4;
+  board[0][0]=i1; board[0][1]=i2; board[1][0]=i3; board[1][1]=i4;
 
   if (msg) printf("%s - ",msg); 
   else {
@@ -191,7 +191,7 @@ int test_board2()
 {
   int e=0;
   e|=board_vector_test(1,0,0,0,"(2*2)Rotate Single Value",0,1,0,0,board_rotate_right);
-  e|=board_vector_test(1,2,3,4,"(2*2)Rotate 4 unique values",4,1,2,3,board_rotate_right);
+  e|=board_vector_test(1,2,3,4,"(2*2)Rotate 4 unique values",3,1,4,2,board_rotate_right);
 return e;
 }
 
