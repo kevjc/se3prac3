@@ -296,9 +296,9 @@ e+=tilt_board_down(256,NULL);
 e+=tilt_board_left(256,NULL);
 e+=tilt_board_right(256,NULL);
 if(e == (0-8)) {
-printf("upper boundary 256 test: PASS\n");
+printf("upper boundary 256 tests for all 8 tilt functions: PASS\n");
 }else{
-printf("upper boundary 256 test: FAIL: %d \n",e);
+printf("upper boundary 256 tests for all 8 tilt functions: FAIL: %d \n",e);
 }
 fflush(stdout);
 return 0;
@@ -317,9 +317,51 @@ e+=tilt_board_down(255,NULL);
 e+=tilt_board_left(255,NULL);
 e+=tilt_board_right(255,NULL);
 if(e == (0)) {
-printf("upper boundary 255 test: PASS\n");
+printf("upper boundary 255 tests for all 8 tilt functions: PASS\n");
 }else{
-printf("upper boundary 255 test: FAIL: %d \n",e);
+printf("upper boundary 255 tests for all 8 tilt functions: FAIL: %d \n",e);
+}
+fflush(stdout);
+return 0;
+}
+
+int wb1(){
+printf("\nin wb255 \n");
+fflush(stdout);
+int e=0;
+e+=tilt_line_left(1,NULL);
+e+=tilt_line_right(1,NULL);
+e+=board_rotate_right(1,NULL);
+e+=board_rotate_left(1,NULL);
+e+=tilt_board_up(1,NULL);
+e+=tilt_board_down(1,NULL);
+e+=tilt_board_left(1,NULL);
+e+=tilt_board_right(1,NULL);
+if(e == (0)) {
+printf("upper boundary 1 tests for all 8 tilt functions: PASS\n");
+}else{
+printf("upper boundary 1 tests for all 8 tilt functions: FAIL: %d \n",e);
+}
+fflush(stdout);
+return 0;
+}
+
+int wb0(){
+printf("\nin wb255 \n");
+fflush(stdout);
+int e=0;
+e+=tilt_line_left(0,NULL);
+e+=tilt_line_right(0,NULL);
+e+=board_rotate_right(0,NULL);
+e+=board_rotate_left(0,NULL);
+e+=tilt_board_up(0,NULL);
+e+=tilt_board_down(0,NULL);
+e+=tilt_board_left(0,NULL);
+e+=tilt_board_right(0,NULL);
+if(e == (0-8)) {
+printf("upper boundary 1 tests for all 8 tilt functions: PASS\n");
+}else{
+printf("upper boundary 1 tests for all 8 tilt functions: FAIL: %d \n",e);
 }
 fflush(stdout);
 return 0;
@@ -330,6 +372,8 @@ fflush(stdout);
 //The goal of this white box testing is to execute the if statement for all boundaries at the beginning of every titl or rotate function
 wb256();
 wb255();
+wb1();
+wb0();
 return 0;
 }
 
